@@ -6,18 +6,18 @@ const completedTaskList = document.getElementById("completed-tasks");
 const createNewTaskElement = function (taskText) {
   const listItem = document.createElement("li");
 
-  const checkBox = document.createElement("input");
+  const checkbox = document.createElement("input");
   const label = document.createElement("label");
   const editInput = document.createElement("input");
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
-  const deleteButtonImg = document.createElement("img");
+  const deleteIcon = document.createElement("img");
 
   // Treat user input as text rather than HTML.
   label.innerText = taskText;
   label.className = "task";
 
-  checkBox.type = "checkbox";
+  checkbox.type = "checkbox";
   editInput.type = "text";
   editInput.className = "task";
 
@@ -25,10 +25,10 @@ const createNewTaskElement = function (taskText) {
   editButton.className = "edit";
 
   deleteButton.className = "delete";
-  deleteButtonImg.src = "./remove.svg";
-  deleteButton.appendChild(deleteButtonImg);
+  deleteIcon.src = "./remove.svg";
+  deleteButton.appendChild(deleteIcon);
 
-  listItem.append(checkBox, label, editInput, editButton, deleteButton);
+  listItem.append(checkbox, label, editInput, editButton, deleteButton);
   return listItem;
 };
 
@@ -76,13 +76,13 @@ const toggleTaskStatus = function () {
 addTaskButton.addEventListener("click", addTask);
 
 const bindTaskEvents = function (taskListItem) {
-  const checkBox = taskListItem.querySelector("input[type=checkbox]");
+  const checkbox = taskListItem.querySelector("input[type=checkbox]");
   const editButton = taskListItem.querySelector("button.edit");
   const deleteButton = taskListItem.querySelector("button.delete");
 
   editButton.onclick = editTask;
   deleteButton.onclick = deleteTask;
-  checkBox.onchange = toggleTaskStatus;
+  checkbox.onchange = toggleTaskStatus;
 };
 
 for (let i = 0; i < todoTaskList.children.length; i++) {
