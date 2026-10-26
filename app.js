@@ -3,7 +3,7 @@ const addButton = document.getElementsByTagName("button")[0];
 const incompleteTaskHolder = document.getElementById("incompleteTasks");
 const completedTasksHolder = document.getElementById("completed-tasks");
 
-const createNewTaskElement = function (taskString) {
+const createNewTaskElement = function (taskText) {
   const listItem = document.createElement("li");
 
   const checkBox = document.createElement("input");
@@ -14,7 +14,7 @@ const createNewTaskElement = function (taskString) {
   const deleteButtonImg = document.createElement("img");
 
   // Treat user input as text rather than HTML.
-  label.innerText = taskString;
+  label.innerText = taskText;
   label.className = "task";
 
   checkBox.type = "checkbox";
@@ -62,8 +62,8 @@ const editTask = function () {
 
 const deleteTask = function () {
   const listItem = this.parentNode;
-  const ul = listItem.parentNode;
-  ul.removeChild(listItem);
+  const taskList = listItem.parentNode;
+  taskList.removeChild(listItem);
 };
 
 const toggleTaskStatus = function () {
